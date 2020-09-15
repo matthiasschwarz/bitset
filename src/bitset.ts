@@ -30,6 +30,7 @@ export class BitSet {
   }
 
   protected scaleUp(index: number) {
+    if (index < 0) return
     const words = this.wordIndex(index)
     for (let i = this._data.length; i <= words; ++i)
       this._data.push(new Uint32Array(1))
