@@ -24,11 +24,13 @@ describe('BitSet', () => {
   })
 
   it('fromBinaryString', () => {
+    expect(BitSet.fromBinaryString('').size).toStrictEqual(0)
     const bitSet = BitSet.fromBinaryString('01100')
     expect(bitSet.toBinaryString()).toStrictEqual('01100')
   })
 
   it('fromUint8Array', () => {
+    expect(BitSet.fromUint8Array(new Uint8Array()).size).toStrictEqual(0)
     const array = Uint8Array.of(0, 1, 2)
     const bitSet = BitSet.fromUint8Array(array)
     expect(bitSet.toUint8Array()).toEqual(array)
